@@ -10,7 +10,7 @@ const Start = () => {
   
   const submitHandler = (e) => {
     e.preventDefault();
-    navigate('/login');
+    navigate('/signup');
     
   } 
 
