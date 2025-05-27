@@ -140,6 +140,7 @@ const Signup = () => {
                 src="19.png" 
                 />
             </button>  
+            
           </form>
         </div>
       </div>
