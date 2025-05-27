@@ -1,13 +1,62 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import StartStructure from '../components/StartStructure'
 import { FaFacebook } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { useNavigate } from 'react-router-dom'
+import gsap from 'gsap'
+import { Power0 } from 'gsap-trial'
+import { Power1 } from 'gsap/all'
 
 const Start = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  
+  const boxRef = useRef();
+  const imageRef = useRef();
+  const contentRef = useRef();
+
+  useEffect(() => {
+    gsap.set(boxRef.current, {x: -150})
+    gsap.set(imageRef.current, {x: 150})
+    let tl = gsap.timeline()
+    .from(boxRef.current, {
+      y: 400,
+      opacity: 0,
+      duration: .4,
+      ease: Power1
+    }, "abc")
+    .from(imageRef.current, {
+      y: 400,
+      opacity: 0,
+      duration: .4,
+      ease: Power1
+    }, "abc")
+    .to(boxRef.current, {
+      x: `.5%`,
+      duration: .3,
+      ease: Power1
+    }, "move-apart")
+    .to(imageRef.current, {
+      x: `-1.5%`,
+      duration: .3,
+      ease: Power1
+    }, "move-apart")
+    .from(contentRef.current, {
+      x: 200,
+      opacity: 0,
+      duration: .5,
+      ease: Power1
+    })
+    // gsap.set(boxRef.current, {x: 250})
+    // gsap.set(imageRef.current, {x: -250})
+
+
+    // gsap.from(boxRef.current, {
+    //   y: 200,
+    //   duration: 1,
+    //   ease: "power2.out"
+    // })
+  }, [])
+
   const submitHandler = (e) => {
     e.preventDefault();
     navigate('/signup');
@@ -15,7 +64,7 @@ const Start = () => {
   } 
 
   return (
-    <StartStructure>
+    <StartStructure boxRef={boxRef} imageRef={imageRef} contentRef={contentRef}>
         <h1 className='text-center text-[1.7vw]'><span className='font-semibold'>Login</span> or <span className='font-semibold'>Sign Up</span> with <br /> your Email Address</h1>
 
         <form onSubmit={submitHandler} className='w-full flex justify-center' action="">
