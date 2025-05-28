@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import gsap from 'gsap'
 import { Power0 } from 'gsap-trial'
 import { Power1 } from 'gsap/all'
+import axios from 'axios'
 
 const Start = () => {
   const navigate = useNavigate();
@@ -46,20 +47,25 @@ const Start = () => {
       duration: .5,
       ease: Power1
     })
-    // gsap.set(boxRef.current, {x: 250})
-    // gsap.set(imageRef.current, {x: -250})
-
-
-    // gsap.from(boxRef.current, {
-    //   y: 200,
-    //   duration: 1,
-    //   ease: "power2.out"
-    // })
   }, [])
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    navigate('/signup');
+    try {
+      const api = `${import.meta.env.VITE_BASE_URL}/checkmail`;
+      const response = await axios.post(api, { email });
+
+      
+      if (response.data.success) {
+          if (response.data.exists) {
+              navigate('/login', { state: { email } });
+            } else {
+              navigate('/signup', { state: { email } });
+          }
+      }
+    } catch (error) {
+        console.error(error);
+    }
     
   } 
 
@@ -88,10 +94,10 @@ const Start = () => {
         </div>
 
         <div className='flex flex-col gap-4'>
-            <button className='px-4 py-3 bg-white border-1 border-zinc-600 rounded-full text-sm cursor-pointer flex items-center justify-between gap-2'>
+            <button className='px-4 py-3 bg-white border-1 border-zinc-600 rounded-full text-sm cursor-pointer flex items-center justify-center gap-2 hover:bg-zinc-50 transition-all ease'>
                 <FaFacebook size={25} color='blue' /> Sign in with Facebook
             </button>
-            <button className='px-4 py-3 bg-white border-1 border-zinc-600 rounded-full text-sm cursor-pointer flex items-center justify-between gap-2'>
+            <button className='px-4 py-3 bg-white border-1 border-zinc-600 rounded-full text-sm cursor-pointer flex items-center justify-center gap-2 hover:bg-zinc-50 transition-all ease'>
                 <FcGoogle size={25} /> Sign in with Google
             </button>
         </div>

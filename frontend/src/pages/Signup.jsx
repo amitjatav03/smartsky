@@ -3,14 +3,15 @@ import StartStructure from '../components/StartStructure'
 import { IoEyeOutline } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa";
 import './Signup.css'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 const Signup = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [formData, setFormData] = useState({
-    email: '',
+    email: location.state?.email || '',
     firstName: '',
     lastName: '',
     contact: '',

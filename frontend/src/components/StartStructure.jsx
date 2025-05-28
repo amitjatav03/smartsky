@@ -6,7 +6,6 @@ import { ThemeDataContext } from '../contexts/ThemeContext'
 
 const StartStructure = ({children, boxRef, imageRef, contentRef }) => {
   const { theme } = useContext(ThemeDataContext);
-  console.log("theme at startstructure ", theme)
 
   return (
     <div className='w-[67%] h-[80%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex font-[poppins]'>
