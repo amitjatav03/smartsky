@@ -149,9 +149,9 @@ const Signup = () => {
               Sign Up
               <img
                 className='w-[2.6em] ml-1'
-                src="19.png"
-              />
-            </button>
+                src="19.png" 
+                />
+            </button>  
           </form>
         </div>
       </div>

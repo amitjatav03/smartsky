@@ -6,7 +6,6 @@ import Signup from './pages/Signup'
 import logo from './assets/images/smartsky-logo.png'
 import { useContext } from 'react'
 import { ThemeDataContext } from './contexts/ThemeContext'
-import Home from './pages/Home'
 
 
 const App = () => {
@@ -21,7 +20,6 @@ const App = () => {
         <Route path='/' element={<Start />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/home' element={<Home />} />
       </Routes>
     </div>
   )

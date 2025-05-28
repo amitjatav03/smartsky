@@ -70,7 +70,7 @@ const Start = () => {
   } 
 
   return (
-    <StartStructure boxRef={boxRef} imageRef={imageRef} contentRef={contentRef}>
+    <StartStructure>
         <h1 className='text-center text-[1.7vw]'><span className='font-semibold'>Login</span> or <span className='font-semibold'>Sign Up</span> with <br /> your Email Address</h1>
 
         <form onSubmit={submitHandler} className='w-full flex justify-center' action="">
