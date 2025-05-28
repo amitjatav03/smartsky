@@ -36,15 +36,15 @@ const Login = () => {
 
   return (
     <StartStructure>
-        <h1 className='text-center text-[1.7vw]'>
+        <h1 className='text-center text-[1.7vw] mb-3'>
           Welcome back , 
           <span className='font-semibold'> 
             SkyRoute 
           </span> 
         </h1>
 
-        <div className='absolute top-[5.8em] left-[38em]'>
-          <p className='text-left text-[1em]'> 
+        <div className='absolute top-[6em] left-[38em]'>
+          <p className='text-left text-[1.1em]'> 
             let's get you signed in.
           </p>
         </div>

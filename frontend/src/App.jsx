@@ -6,6 +6,10 @@ import Signup from './pages/Signup'
 import logo from './assets/images/smartsky-logo.png'
 import { useContext } from 'react'
 import { ThemeDataContext } from './contexts/ThemeContext'
+import Freelancer from './components/Freelancer'
+import Employee from './components/Employee'
+import Owner from './components/Owner'
+import CheckboxStructure from './components/CheckboxStructure'
 
 
 const App = () => {
@@ -20,7 +24,11 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Start />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
+        <Route path='/signup' element={<Signup />} />   
+        <Route path='/freelancer' element={<Freelancer />} />   
+        <Route path='/employee' element={<Employee />} />   
+        <Route path='/owner' element={<Owner />} />   
+        <Route path='/checkbox' element={<CheckboxStructure />} />   
       </Routes>
     </div>
   )

@@ -8,7 +8,7 @@ const StartStructure = ({children}) => {
   console.log("theme at startstructure ", theme)
 
   return (
-    <div className='w-[67%] h-[80%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex font-[poppins]'>
+    <div className='w-[62%] h-[80%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex font-[poppins]'>
         <div className='relative w-1/2 h-full'>
             <img className='absolute bottom-[-5%] right-[-7%]' src={`${theme === 'light' ? yellowThemeLogo : blueThemeLogo}`} alt="" />
         </div>
