@@ -2,16 +2,15 @@ import {useState} from 'react'
 import StartStructure from '../components/StartStructure'
 import { IoEyeOutline } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 
 const Login = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const[formData , setFormData] = useState({
-    email : location.state?.email || '',
+    email : '',
     password : ''
   })
   
@@ -42,6 +41,7 @@ const Login = () => {
     try {
       await axios.post(api, data);
       navigate('/home');
+      console.log("LoggedIn Successfully")
 
     } catch(error) {
       console.log(error.message);
@@ -77,21 +77,17 @@ const Login = () => {
             
             <br/>
 
-            <div className='relative'>
+            <div className=' password w-[25vw] h-[3.7vw] bg-white p-2 pl-7 rounded-3xl border border-zinc-400 flex justify-between items-center shadow-sm focus:border-[1px] focus-within:border-zinc-700'>
               <input
-              className='block px-7 pb-2.5 w-[25vw] h-[3.7vw] pt-4 text-md text-zinc-900 bg-white appearance-none dark:text-white dark:border-gray-600 rounded-3xl focus:outline-none focus:ring-0 focus-within:border-zinc-700 peer shadow-sm focus:border-[1px] border border-zinc-400'
+              className='w-full h-full focus:outline-none' 
               type={show ? 'text' : 'password'}
-              placeholder=''
+              placeholder='password'
               name='password'
-              id="default_outlined"
               value={formData.password}
               onChange={changeHandler}
               />
 
-              <label htmlFor="default_outlined" className="absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-90 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-7 text-md peer-focus:px-2 peer-focus:zinc-700 peer peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-90 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Password</label>
-
               <button 
-              className='absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer'
               type='button'
               onClick={()=>{
                 setShow(prev => !prev);

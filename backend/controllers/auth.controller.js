@@ -3,48 +3,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-exports.checkEmail = async (req, res) => {
-    try {
-        // fetch email from request body
-        const { email } = req.body;
-        console.log(email);
-        
-
-        // validate email
-        if(!email) {
-            return res.status(400).json({
-                success: false,
-                message: "Email required"
-            }); 
-        }
-
-        // check user present or not
-        const user = await User.findOne({ email });
-        
-        if(user) {
-            return res.status(200).json({
-                success: true,
-                exists: true,
-                message: "Account exists. Please login."
-            });
-        }
-
-        // return response that user needs to be created
-        return res.status(200).json({
-            success: true,
-            exists: false,
-            message: "Please create a new account"
-        });
-
-    } catch (error) {
-        return res.status(500).json({
-            success: false,
-            message: "Internal Server Error",
-        });
-    }
-}
-
-
 // signup controller
 exports.signUp = async (req, res) => {
     try {
@@ -88,10 +46,7 @@ exports.signUp = async (req, res) => {
         });
         
     } catch(error) {
-        return res.status(500).json({
-            success: false,
-            message: "User Not Registered",
-        });
+
     }
 }
 

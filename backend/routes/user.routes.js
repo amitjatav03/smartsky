@@ -15,9 +15,6 @@ router.post("/login", authController.login);
 // route for user logout
 router.get("/logout", authController.logout);
 
-// route for checking mail
-router.post("/checkmail", authController.checkEmail);
-
 
 
 // export router
