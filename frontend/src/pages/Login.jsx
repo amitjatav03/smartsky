@@ -1,13 +1,9 @@
-import {useState} from 'react'
+import React,{useState} from 'react'
 import StartStructure from '../components/StartStructure'
 import { IoEyeOutline } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
-
 
 const Login = () => {
-  const navigate = useNavigate();
 
   const[formData , setFormData] = useState({
     email : '',
@@ -28,24 +24,14 @@ const Login = () => {
     })
   }
 
-  const submitHandler = async (e) => {
+  function clickHandler(e){
     e.preventDefault();
-    const data = {
-      email: formData.email,
-      password: formData.password
-    }
-
-    console.log("login data", data)
-    const api = `${import.meta.env.VITE_BASE_URL}/login`;
-
-    try {
-      await axios.post(api, data);
-      navigate('/home');
-      console.log("LoggedIn Successfully")
-
-    } catch(error) {
-      console.log(error.message);
-    }
+    console.log(formData.email)
+    console.log(formData.password)
+    setFormData({
+      email : '',
+      password : ''
+    })
   }
 
   return (
@@ -65,7 +51,7 @@ const Login = () => {
         
 
         <div className='w-full h-[90%] flex justify-center relative'>
-          <form onSubmit={submitHandler}>
+          <form>
             <input 
             className='w-[25vw] h-[3.7vw] bg-white p-2 pl-7 rounded-3xl border border-zinc-400 my-13 shadow-sm focus:outline-none focus:border-[1px] focus:border-zinc-700 text-zinc-900'
             type='email'
@@ -105,8 +91,9 @@ const Login = () => {
             <br/>
 
             <button 
-            className='flex items-center justify--center px-6 bg-[#f8ca1e] rounded-3xl border border-zinc-600 shadow-sm absolute top-[18vw] left-[8.5vw] hover:bg-[#e6b81b] pl-10 cursor-pointer'
-            type='submit'>
+            className='flex items-center justify--center px-6 bg-[#f8ca1e] rounded-3xl border border-zinc-600 shadow-sm absolute top-[18vw] left-[8.5vw] hover:bg-[#e6b81b] pl-10'
+            type='submit'
+            onClick={clickHandler}>
               Log In
               <img 
               className='w-[2.6em] ml-1'

@@ -2,11 +2,3 @@
 
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
