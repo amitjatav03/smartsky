@@ -7,7 +7,6 @@ import logo from './assets/images/smartsky-logo.png'
 import { useContext } from 'react'
 import { ThemeDataContext } from './contexts/ThemeContext'
 
-
 const App = () => {
   const { theme, toggleTheme } = useContext(ThemeDataContext); 
 
