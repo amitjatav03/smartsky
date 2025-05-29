@@ -1,5 +1,6 @@
 import React , {useState} from 'react'
 import data from '../freelancerData'
+import CheckboxStructure from './Freelancer'
 
 
 const Freelancer = () => {
@@ -34,6 +35,7 @@ const Freelancer = () => {
       </div>
 
       <div className='w-1/2 h-full bg-[#FFFCF2] rounded-2xl border-1 border-zinc-600 flex flex-col items-center gap-8 py-12 px-10'>
+          <CheckboxStructure/>
           <button onClick={clickHandler}>Next</button>
           <button onClick={clickHandler}>skip</button>
       </div>
