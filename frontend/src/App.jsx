@@ -6,7 +6,6 @@ import Signup from './pages/Signup'
 import logo from './assets/images/smartsky-logo.png'
 import { useContext } from 'react'
 import { ThemeDataContext } from './contexts/ThemeContext'
-import Freelancer from './components/Freelancer'
 
 
 const App = () => {
